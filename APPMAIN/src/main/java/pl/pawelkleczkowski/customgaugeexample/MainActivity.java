@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
+
 import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 			TextView text1 =
 					findViewById(R.id.textView1);
 			text1.setText(string);
+            Toast.makeText(this,string,Toast.LENGTH_LONG).show();
+            Log.i("got",string);
 		}
 	};
 
