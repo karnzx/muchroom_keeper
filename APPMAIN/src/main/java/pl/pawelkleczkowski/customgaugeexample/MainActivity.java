@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
 			String string = bundle.getString("OTH365jrDMiPUK0");
 			TextView text1 =
 					findViewById(R.id.textView1);
-			text1.setText(string);
-            Toast.makeText(this,string,Toast.LENGTH_LONG).show();
+            text1.setText(string);
             Log.i("got",string);
 		}
 	};
@@ -98,15 +97,22 @@ public class MainActivity extends AppCompatActivity {
                 if(switch1.isChecked()){
                     microgear.publish("/relaylight","ON");
                     switch1.setText(R.string.ON);
+                    ShowText("ON");
                 }else{
                     microgear.publish("/relaylight","OFF");
                     switch1.setText(R.string.OFF);
+                    ShowText("OFF");
                 }
                 Log.i("Switch", "click");
             }
         });
 	}
-	
+
+	// Toast func()
+	protected void ShowText(String msg){
+        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT  ).show();
+    }
+
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
