@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'CustomGauge'
+
+    publishedGroupId = 'pl.pawelkleczkowski.customgauge'
+    libraryName = 'CustomGauge'
+    artifact = 'CustomGauge'
+
+    libraryDescription = 'A simple gauge view for Android applications'
+
+    siteUrl = 'https://github.com/pkleczko/CustomGauge'
+    gitUrl = 'https://github.com/pkleczko/CustomGauge.git'
+
+    libraryVersion = '1.0.3'
+
+    developerId = 'pkleczko'
+    developerName = 'Pawel Kleczkowski'
+    developerEmail = 'contact@pawelkleczkowski.pl'
+
+    licenseName = 'GNU GENERAL PUBLIC LICENSE Version 2, June 1991'
+    licenseUrl = 'https://github.com/pkleczko/CustomGauge/blob/master/LICENSE'
+    allLicenses = ["GPL-2.0"]
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 3
+        versionName "1.0.3"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
