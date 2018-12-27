@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 		toolbar.setSubtitle("เพาะเห็ดไงละ");
 		toolbar.setSubtitleTextColor(Color.YELLOW);
 		setSupportActionBar(toolbar);
+		
 
         //define button & switch
 		Button button =
