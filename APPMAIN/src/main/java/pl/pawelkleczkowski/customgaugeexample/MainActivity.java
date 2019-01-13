@@ -34,21 +34,22 @@ public class MainActivity extends AppCompatActivity {
 	protected TextView text4;
 
 	private Microgear microgear = new Microgear(this);
-	private String appid = "Greenroom"; //APP_ID
-	private String key = "OTH365jrDMiPUK0"; //KEY
-	protected String secret = "Cu7Wo7r17GAqPBsr1hdWe8Qib"; //SECRET
+	private String appid = "MUSHROOM21"; //APP_ID
+	private String key = "pKbbMlgMoIDDubp"; //KEY
+	protected String secret = "00issaBXLFQXVn0A4qbCIBg1U"; //SECRET
 	protected String alias = "android";
 
-	// i dont know how to remove yellow tag ;w; .. -
+	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			Bundle bundle = msg.getData();
-			String string = bundle.getString("OTH365jrDMiPUK0");
+			String string = bundle.getString(key);
 			TextView text1 =
 					findViewById(R.id.textView1);
             text1.setText(string);
+            ShowText(string);
             Log.i("got",string);
 		}
 	};
@@ -69,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.toolbar);
 		toolbar.setTitle("Muchroom Project APP");
 		toolbar.setTitleTextColor(Color.WHITE);
-		toolbar.setSubtitle("เพาะเห็ดไงละ");
-		toolbar.setSubtitleTextColor(Color.YELLOW);
+		toolbar.setSubtitle("connect with netpie");
+		toolbar.setSubtitleTextColor(Color.parseColor("#D7CCC8"));
 		setSupportActionBar(toolbar);
 
         //define button & switch
@@ -136,12 +137,12 @@ public class MainActivity extends AppCompatActivity {
         text4 =
                 findViewById(R.id.textView4);
 
-        if(topic.equals("/" + appid + "/status_relaylight")){
+        if(topic.equals("/" + appid + "/status_Node")){
             String status = "status : ";
             text4.setText(status);
             text4.append(message);
         }
-        if(topic.equals("/" + appid + "/dht1")){
+        if(topic.equals("/" + appid + "/DHT")){
             String[] DHT = message.split(",");
             text2.setText("Temp "+DHT[0]+"  °C"); //temp
             temperature.setValue(Integer.valueOf(DHT[0]));
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         public void onMessage(String topic, String message) {
             Message msg = handler.obtainMessage();
             Bundle bundle = new Bundle();
-            //bundle.putString(key, topic+" : "+message);
+            bundle.putString(key, topic+" : "+message);
             bundle.putString(key, message);
             msg.setData(bundle);
             handler.sendMessage(msg);
@@ -200,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString(key, "Disconnected");
             msg.setData(bundle);
             handler.sendMessage(msg);
+            //ShowText(msg.getData().getString(key));
             Log.i("disconnect","Disconnected");
         }
 

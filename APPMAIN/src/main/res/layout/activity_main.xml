@@ -1,16 +1,17 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE089"
+    android:background="#fff176"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8D6E63"
+        android:background="#795548"
         android:theme="@style/AlertDialog.AppCompat">
 
     </android.support.v7.widget.Toolbar>
@@ -22,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/toolbar"
         android:gravity="center"
-        android:textColor="@color/md_red_600"
+        android:textColor="#212121"
         android:textSize="22sp"
         android:text="Day Left \n TextView" />
 
