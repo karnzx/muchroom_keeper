@@ -15,6 +15,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+
 import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 	private CustomGauge temperature;
 
 	int i;
-	private TextView text1;
+	protected TextView text1;
 	protected TextView text2;
 	protected TextView text3;
 	protected TextView text4;
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
 		public void handleMessage(Message msg) {
 			Bundle bundle = msg.getData();
 			String string = bundle.getString(key);
-			TextView text1 =
+			text1 =
 					findViewById(R.id.textView1);
             text1.setText(string);
-            ShowText(string);
+            //ShowText(string);
             Log.i("got",string);
 		}
 	};
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 		toolbar.setTitle("Muchroom Project APP");
 		toolbar.setTitleTextColor(Color.WHITE);
 		toolbar.setSubtitle("connect with netpie");
-		toolbar.setSubtitleTextColor(Color.parseColor("#D7CCC8"));
+		toolbar.setSubtitleTextColor(Color.parseColor("#B3E5FC"));
 		setSupportActionBar(toolbar);
 
         //define button & switch
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	// Toast func()
-	protected void ShowText(String msg){
+	private void ShowText(String msg){
         Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT  ).show();
     }
 
@@ -144,9 +145,14 @@ public class MainActivity extends AppCompatActivity {
         }
         if(topic.equals("/" + appid + "/DHT")){
             String[] DHT = message.split(",");
-            text2.setText("Temp "+DHT[0]+"  °C"); //temp
+            String SHum = "Hum " , STemp = "Temp ";
+            text2.setText(STemp); //temp
+            text2.append(DHT[0]);
+            text2.append(" °C");
             temperature.setValue(Integer.valueOf(DHT[0]));
-            text3.setText("Hum "+DHT[1]+" %RH"); //humi
+            text3.setText(SHum); //humi
+            text3.append(DHT[1]);
+            text3.append(" %RH");
             humidity.setValue(Integer.valueOf(DHT[1]));
         }
     }

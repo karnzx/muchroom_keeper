@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff176"
+    android:background="#B3E5FC"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#795548"
+        android:background="#03A9F4"
         android:theme="@style/AlertDialog.AppCompat">
 
     </android.support.v7.widget.Toolbar>
@@ -60,7 +60,7 @@
             app:gaugeStartAngle="135"
             app:gaugeStartValue="0"
             app:gaugeStrokeCap="ROUND"
-            app:gaugeStrokeColor="@color/md_brown_400"
+            app:gaugeStrokeColor="#FFFFFF"
             app:gaugeStrokeWidth="10dp"
             app:gaugeSweepAngle="270" />
 
@@ -91,7 +91,7 @@
             app:gaugeStartAngle="135"
             app:gaugeStartValue="0"
             app:gaugeStrokeCap="ROUND"
-            app:gaugeStrokeColor="@color/md_brown_300"
+            app:gaugeStrokeColor="#FFFFFF"
             app:gaugeStrokeWidth="10dp"
             app:gaugeSweepAngle="270" />
 
