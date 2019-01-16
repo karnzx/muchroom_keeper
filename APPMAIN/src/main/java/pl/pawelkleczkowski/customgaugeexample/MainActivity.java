@@ -3,6 +3,7 @@ package pl.pawelkleczkowski.customgaugeexample;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 	protected String alias = "android";
 
 	String SOffline = "Offline",SOnline = "Online";
+
 	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
@@ -67,14 +69,6 @@ public class MainActivity extends AppCompatActivity {
 		microgear.subscribe("/#"); //listen all
 
 		setContentView(R.layout.activity_main);
-        // define and set toolbar
-		Toolbar toolbar =
-				findViewById(R.id.toolbar);
-		toolbar.setTitle("Muchroom Project APP");
-		toolbar.setTitleTextColor(Color.WHITE);
-		toolbar.setSubtitle("connect with netpie");
-		toolbar.setSubtitleTextColor(Color.parseColor("#B3E5FC"));
-		setSupportActionBar(toolbar);
 
         //define button & switch
 		Button button =
@@ -83,7 +77,19 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.switch1);
 
         text1 = findViewById(R.id.textView1);
+        text2 = findViewById(R.id.textView2);
+        text3 = findViewById(R.id.textView3);
+        text4 = findViewById(R.id.textView4);
+        Time =  findViewById(R.id.Time);
         text1.setText(SOffline);
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/ZCOOL-Regular.ttf");
+        text1.setTypeface(typeface);
+        text2.setTypeface(typeface);
+        text3.setTypeface(typeface);
+        text4.setTypeface(typeface);
+        Time.setTypeface(typeface);
+        button.setTypeface(typeface);
+        switch1.setTypeface(typeface);
 
         //defind temp,humi
 		humidity = findViewById(R.id.gauge1);
@@ -143,16 +149,6 @@ public class MainActivity extends AppCompatActivity {
 	}
 
     private void setMessage(String topic, String message){
-        text1 =
-                findViewById(R.id.textView1);
-        text2 =
-                findViewById(R.id.textView2);
-        text3 =
-                findViewById(R.id.textView3);
-        text4 =
-                findViewById(R.id.textView4);
-        Time =
-                findViewById(R.id.Time);
 
         if(topic.equals("/" + appid + "/harvest")){
             Time.setText(message.substring(message.indexOf('/')+2));
@@ -173,10 +169,8 @@ public class MainActivity extends AppCompatActivity {
         else if(topic.equals("/" + appid + "/DHT")){
             String[] DHT = message.split(",");
             text2.setText(DHT[0]);
-            text2.append(" °C");
             temperature.setValue(Integer.valueOf(DHT[0]));
             text3.setText(DHT[1]);
-            text3.append(" %RH");
             humidity.setValue(Integer.valueOf(DHT[1]));
         }
     }

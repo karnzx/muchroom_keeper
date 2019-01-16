@@ -5,16 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3E5FC"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/ZCOOL_TextViewStyle">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#03A9F4"
-        android:theme="@style/AlertDialog.AppCompat">
-
-    </android.support.v7.widget.Toolbar>
+        app:title="Muchroom Project APP"
+        app:titleTextColor="@color/md_white_1000"
+        app:subtitle="connect with netpie"
+        app:subtitleTextColor="#B3E5FC"
+        style="@style/ZCOOL_TextViewStyle"
+        />
 
     <TextView
         android:id="@+id/Time"
@@ -22,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/toolbar"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:textColor="#212121"
         android:textSize="22sp"
@@ -120,12 +125,11 @@
             android:layout_marginLeft="2dp"
             android:layout_marginEnd="-2dp"
             android:layout_marginRight="-2dp"
-            android:layout_marginBottom="-3dp"
             android:gravity="center"
             android:shadowColor="@color/md_red_200"
             android:text="Temp"
             android:textColor="@color/md_red_A700"
-            android:textSize="20sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -144,7 +148,7 @@
             android:gravity="center"
             android:text="Hum"
             android:textColor="@color/md_indigo_A700"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
 
     </RelativeLayout>
@@ -160,6 +164,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Offline"
+        android:textSize="18dp"
         android:textColor="@color/md_white_1000" />
 
 
@@ -167,15 +172,16 @@
         android:id="@+id/textView4"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/shape_rec_l_brown"
-        android:layout_centerHorizontal="true"
         android:layout_above="@id/buttonLayout"
-        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/shape_rec_l_brown"
         android:gravity="center"
+        android:padding="10dp"
         android:text="Status"
-        android:textColor="@color/md_white_1000"/>
+        android:textColor="@color/md_white_1000"
+        android:textSize="18dp" />
 
 
     <RelativeLayout
@@ -204,7 +210,7 @@
             android:layout_marginRight="33dp"
             android:layout_marginBottom="-1dp"
             android:background="@drawable/shape_brown_button"
-            android:text="Click"
+            android:text="REFESH"
             android:textColor="@drawable/color_button" />
 
 

@@ -7,6 +7,11 @@
         <item name="colorPrimaryDark">#0288D1</item>
         // TOP
         <item name="colorAccent">@color/md_blue_300</item>
+        <item name="android:textViewStyle">@style/ZCOOL_TextViewStyle</item>
+    </style>
+
+    <style name="ZCOOL_TextViewStyle" parent="android:Widget.TextView">
+            <item name="android:fontFamily">@fonts/ZCOOL-Regular</item>
     </style>
 
     <style name="ToolBarStyle" parent="Theme.AppCompat">
