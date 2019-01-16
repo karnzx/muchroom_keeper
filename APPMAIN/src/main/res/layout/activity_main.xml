@@ -66,7 +66,7 @@
             app:gaugeStartValue="0"
             app:gaugeStrokeCap="ROUND"
             app:gaugeStrokeColor="#FFFFFF"
-            app:gaugeStrokeWidth="10dp"
+            app:gaugeStrokeWidth="16dp"
             app:gaugeSweepAngle="270" />
 
         <pl.pawelkleczkowski.customgauge.CustomGauge
@@ -97,7 +97,7 @@
             app:gaugeStartValue="0"
             app:gaugeStrokeCap="ROUND"
             app:gaugeStrokeColor="#FFFFFF"
-            app:gaugeStrokeWidth="10dp"
+            app:gaugeStrokeWidth="15dp"
             app:gaugeSweepAngle="270" />
 
 
