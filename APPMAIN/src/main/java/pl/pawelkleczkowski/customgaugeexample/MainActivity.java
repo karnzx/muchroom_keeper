@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Button;
@@ -28,11 +29,11 @@ public class MainActivity extends AppCompatActivity {
 	private CustomGauge humidity;
 	private CustomGauge temperature;
 
-	int i;
 	protected TextView text1;
 	protected TextView text2;
 	protected TextView text3;
 	protected TextView text4;
+	protected TextView Time;
 
 	private Microgear microgear = new Microgear(this);
 	private String appid = "MUSHROOM21"; //APP_ID
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 	protected String secret = "00issaBXLFQXVn0A4qbCIBg1U"; //SECRET
 	protected String alias = "android";
 
+	String SOffline = "Offline",SOnline = "Online";
 	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
@@ -47,9 +49,8 @@ public class MainActivity extends AppCompatActivity {
 		public void handleMessage(Message msg) {
 			Bundle bundle = msg.getData();
 			String string = bundle.getString(key);
-			text1 =
-					findViewById(R.id.textView1);
-            text1.setText(string);
+			//text1 = findViewById(R.id.textView1);
+            //text1.setText(string);
             //ShowText(string);
             Log.i("got",string);
 		}
@@ -80,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.button);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
+
+        text1 = findViewById(R.id.textView1);
+        text1.setText(SOffline);
+
         //defind temp,humi
 		humidity = findViewById(R.id.gauge1);
 		temperature = findViewById(R.id.gauge2);
@@ -92,20 +97,27 @@ public class MainActivity extends AppCompatActivity {
 		// set switch OFF
         switch1.setText(R.string.OFF);
         switch1.setChecked(false);
-        microgear.publish("/relaylight","OFF");
+        microgear.publish("/Node","OFF");
 		switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(switch1.isChecked()){
-                    microgear.publish("/relaylight","ON");
+                    microgear.publish("/Node","ON");
                     switch1.setText(R.string.ON);
                     ShowText("ON");
                 }else{
-                    microgear.publish("/relaylight","OFF");
+                    microgear.publish("/Node","OFF");
                     switch1.setText(R.string.OFF);
                     ShowText("OFF");
                 }
                 Log.i("Switch", "click");
+            }
+        });
+
+		button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                microgear.publish("/Node","REFESH");
             }
         });
 	}
@@ -131,27 +143,39 @@ public class MainActivity extends AppCompatActivity {
 	}
 
     private void setMessage(String topic, String message){
+        text1 =
+                findViewById(R.id.textView1);
         text2 =
                 findViewById(R.id.textView2);
         text3 =
                 findViewById(R.id.textView3);
         text4 =
                 findViewById(R.id.textView4);
+        Time =
+                findViewById(R.id.Time);
 
-        if(topic.equals("/" + appid + "/status_Node")){
+        if(topic.equals("/" + appid + "/harvest")){
+            Time.setText(message.substring(message.indexOf('/')+2));
+        }
+        else if(topic.equals("/" + appid + "/NETstatus_Node")){
+            if(message.equals("Online")){
+                text1.setText(SOnline);
+            }else{
+                text1.setText(SOffline);
+            }
+
+        }
+        else if(topic.equals("/" + appid + "/status_Node")){
             String status = "status : ";
             text4.setText(status);
             text4.append(message);
         }
-        if(topic.equals("/" + appid + "/DHT")){
+        else if(topic.equals("/" + appid + "/DHT")){
             String[] DHT = message.split(",");
-            String SHum = "Hum " , STemp = "Temp ";
-            text2.setText(STemp); //temp
-            text2.append(DHT[0]);
+            text2.setText(DHT[0]);
             text2.append(" °C");
             temperature.setValue(Integer.valueOf(DHT[0]));
-            text3.setText(SHum); //humi
-            text3.append(DHT[1]);
+            text3.setText(DHT[1]);
             text3.append(" %RH");
             humidity.setValue(Integer.valueOf(DHT[1]));
         }

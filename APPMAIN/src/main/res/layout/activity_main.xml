@@ -25,7 +25,7 @@
         android:gravity="center"
         android:textColor="#212121"
         android:textSize="22sp"
-        android:text="Day Left \n TextView" />
+        android:text="Day Left " />
 
     <RelativeLayout
         android:id="@+id/gaugeLayout"
@@ -151,14 +151,15 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="188dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Time"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="9dp"
         android:background="@drawable/shape_rec_l_brown"
         android:gravity="center"
-        android:layout_below="@id/Time"
-        android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="Offline"
         android:textColor="@color/md_white_1000" />
 
 
