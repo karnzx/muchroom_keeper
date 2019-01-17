@@ -103,16 +103,19 @@ public class MainActivity extends AppCompatActivity {
 		// set switch OFF
         switch1.setText(R.string.OFF);
         switch1.setChecked(false);
-        microgear.publish("/Node","OFF");
+        //microgear.publish("/gearname/Node","OFF");
+        microgear.chat("Node","OFF");
 		switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(switch1.isChecked()){
-                    microgear.publish("/Node","ON");
+                    //microgear.publish("/gearname/Node","ON");
+                    microgear.chat("Node","ON");
                     switch1.setText(R.string.ON);
                     ShowText("ON");
                 }else{
-                    microgear.publish("/Node","OFF");
+                    //microgear.publish("/gearname/Node","OFF");
+                    microgear.chat("Node","OFF");
                     switch1.setText(R.string.OFF);
                     ShowText("OFF");
                 }
@@ -123,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
 		button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                microgear.publish("/Node","REFESH");
+                //microgear.publish("/Node","REFESH");
+                microgear.chat("Node","REFESH");
             }
         });
 	}
