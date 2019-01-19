@@ -10,11 +10,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/clendar"
+        android:text="Clendar harvest day"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/date"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-
+        android:textColor="#536DFE"
+        android:textStyle="bold"
         />
 
     <LinearLayout
@@ -25,6 +26,7 @@
         android:layout_centerHorizontal="true">
 
         <CalendarView
+            android:id="@+id/calendar_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_calendarbg"
@@ -43,6 +45,8 @@
         android:layout_below="@id/date"
         android:layout_centerHorizontal="true"
         android:text="back"
+        android:textColor="@color/md_white_1000"
+        android:background="@drawable/shape_brown_button"
         />
 
 </RelativeLayout>

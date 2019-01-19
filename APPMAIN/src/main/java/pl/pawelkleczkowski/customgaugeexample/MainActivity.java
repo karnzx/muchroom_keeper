@@ -2,12 +2,10 @@ package pl.pawelkleczkowski.customgaugeexample;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -19,6 +17,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.Calendar;
 
 import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
@@ -44,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 	protected String secret = "00issaBXLFQXVn0A4qbCIBg1U"; //SECRET
 	protected String alias = "android";
 
+    protected String FN_D = ""; //final date
+    protected String FN_M = ""; //final month
 	String SOffline = "Offline",SOnline = "Online";
 
 	// i dont know how to remove yellow tag ;w; so i use this @  -
@@ -147,7 +148,13 @@ public class MainActivity extends AppCompatActivity {
 		imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                //calendar.get(Calendar.YEAR);  //get year
+                calendar.set(Calendar.MONTH, (Integer.parseInt(FN_M)-1));
+                calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(FN_D));
+                long milliTime = calendar.getTimeInMillis();
                 Intent myIntent = new Intent(MainActivity.this,calendar.class);
+                myIntent.putExtra("date", milliTime); //Long var
                 startActivity(myIntent);
 
             }
@@ -177,7 +184,10 @@ public class MainActivity extends AppCompatActivity {
     private void setMessage(String topic, String message){
 
         if(topic.equals("/" + appid + "/harvest")){
-            Time.setText(message.substring(message.indexOf('/')+1));
+            Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
+            //Time.setText(message);    // show all
+            FN_M = (message.substring(0,message.indexOf('-')));
+            FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')-1));  // ignore '-' its self , ignore 1 space
         }
         else if(topic.equals("/" + appid + "/NETstatus_Node")){
             if(message.equals("Online")){

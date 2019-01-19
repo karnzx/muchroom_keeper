@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CalendarView;
 
+
 public class calendar extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -16,11 +17,18 @@ public class calendar extends AppCompatActivity {
         setContentView(R.layout.activity_date);
 
         Button button = findViewById(R.id.btt);
+        CalendarView calendarView = findViewById(R.id.calendar_date);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            long millisTime = bundle.getLong("date");
+            calendarView.setDate(millisTime,true,true);
+        }
     }
 }
