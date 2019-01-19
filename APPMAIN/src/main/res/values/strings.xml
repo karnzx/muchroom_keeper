@@ -3,4 +3,6 @@
     <string name="title_activity_intro">intro</string>
     <string name="OFF">OFF</string>
     <string name="ON">ON</string>
+    <string name="cart">cart</string>
+    <string name="clendar">clendar</string>
 </resources>

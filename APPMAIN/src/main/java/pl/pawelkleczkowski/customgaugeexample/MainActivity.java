@@ -3,12 +3,14 @@ package pl.pawelkleczkowski.customgaugeexample;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Button;
 import android.widget.TextView;
@@ -70,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_main);
 
-        //define button & switch
+        //define button & switch & imageButton
 		Button button =
 				findViewById(R.id.button);
+        ImageButton imageButtonCart =
+                findViewById(R.id.cart);
+        ImageButton  imageButtonCalendar =
+                findViewById(R.id.calendar);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
 
@@ -130,6 +136,22 @@ public class MainActivity extends AppCompatActivity {
                 microgear.chat("Node","REFESH");
             }
         });
+
+		imageButtonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowText("cart comming soon!!");
+            }
+        });
+
+		imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this,calendar.class);
+                startActivity(myIntent);
+
+            }
+        });
 	}
 
 	// Toast func()
@@ -155,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
     private void setMessage(String topic, String message){
 
         if(topic.equals("/" + appid + "/harvest")){
-            Time.setText(message.substring(message.indexOf('/')+2));
+            Time.setText(message.substring(message.indexOf('/')+1));
         }
         else if(topic.equals("/" + appid + "/NETstatus_Node")){
             if(message.equals("Online")){

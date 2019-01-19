@@ -8,6 +8,7 @@
     android:orientation="vertical"
     style="@style/ZCOOL_TextViewStyle">
 
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -31,6 +32,31 @@
         android:textColor="#212121"
         android:textSize="22sp"
         android:text="Day Left " />
+
+    <ImageButton
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_alignEnd="@+id/Time"
+        android:layout_alignRight="@id/Time"
+        android:layout_margin="15dp"
+        android:background="@null"
+        android:contentDescription="@string/cart"
+        android:src="@drawable/ic_shortcut_shopping_cart" />
+    <ImageButton
+        android:id="@+id/calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cart"
+        android:layout_alignEnd="@+id/Time"
+        android:layout_alignRight="@id/Time"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@null"
+        android:contentDescription="@string/clendar"
+        android:src="@drawable/ic_shortcut_calendar_today" />
+
 
     <RelativeLayout
         android:id="@+id/gaugeLayout"
@@ -82,17 +108,17 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="31dp"
             android:layout_marginLeft="31dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="34dp"
             android:layout_marginRight="34dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="29dp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
             app:gaugeEndValue="1000"
-            app:gaugePointEndColor="@color/md_red_400"
-            app:gaugePointStartColor="@color/md_red_A400"
+            app:gaugePointEndColor="#ff3d00"
+            app:gaugePointStartColor="#ff6d00"
             app:gaugeStartAngle="135"
             app:gaugeStartValue="0"
             app:gaugeStrokeCap="ROUND"
@@ -104,12 +130,12 @@
         <ImageView
             android:contentDescription="@string/app_name"
             android:id="@+id/imageView2"
-            android:layout_width="91dp"
-            android:layout_height="81dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_above="@+id/textView2"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            app:srcCompat="@mipmap/ic_mushroom"
+            android:src="@mipmap/mr2"
             />
 
         <TextView
@@ -128,7 +154,7 @@
             android:gravity="center"
             android:shadowColor="@color/md_red_200"
             android:text="Temp"
-            android:textColor="@color/md_red_A700"
+            android:textColor="#ff3d00"
             android:textSize="28sp" />
 
         <TextView

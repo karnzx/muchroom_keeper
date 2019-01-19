@@ -6,7 +6,7 @@
 
     <application
         android:label="@string/app_name"
-        android:icon="@mipmap/ic_mushroom"
+        android:icon="@mipmap/mr2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label"
@@ -21,6 +21,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".calendar">
         </activity>
     </application>
 
