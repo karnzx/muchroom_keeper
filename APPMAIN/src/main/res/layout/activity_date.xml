@@ -8,9 +8,10 @@
     style="@style/ZCOOL_TextViewStyle"
     >
     <TextView
+        android:id="@+id/header_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clendar harvest day"
+        android:text="Calendar harvest day"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/date"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"

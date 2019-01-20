@@ -85,7 +85,7 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            app:gaugeEndValue="1000"
+            app:gaugeEndValue="100"
             app:gaugePointEndColor="@color/md_blue_grey_600"
             app:gaugePointStartColor="@color/md_indigo_A400"
             app:gaugeStartAngle="135"
@@ -116,7 +116,7 @@
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-            app:gaugeEndValue="1000"
+            app:gaugeEndValue="100"
             app:gaugePointEndColor="#ff3d00"
             app:gaugePointStartColor="#ff6d00"
             app:gaugeStartAngle="135"
@@ -135,7 +135,7 @@
             android:layout_above="@+id/textView2"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/mr2"
+            android:src="@drawable/mr3"
             />
 
         <TextView
@@ -236,7 +236,7 @@
             android:layout_marginRight="33dp"
             android:layout_marginBottom="-1dp"
             android:background="@drawable/shape_brown_button"
-            android:text="REFESH"
+            android:text="REFRESH"
             android:textColor="@drawable/color_button" />
 
 

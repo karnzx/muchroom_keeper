@@ -134,14 +134,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //microgear.publish("/Node","REFESH");
-                microgear.chat("Node","REFESH");
+                microgear.chat("Node","REFRESH");
             }
         });
 
 		imageButtonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowText("cart comming soon!!");
+                Intent myIntent = new Intent(MainActivity.this,cart.class); //start intent here
+                startActivity(myIntent);
             }
         });
 
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, (Integer.parseInt(FN_M)-1));
                 calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(FN_D));
                 long milliTime = calendar.getTimeInMillis();
-                Intent myIntent = new Intent(MainActivity.this,calendar.class);
+                Intent myIntent = new Intent(MainActivity.this,calendar.class); //start intent here
                 myIntent.putExtra("date", milliTime); //Long var
                 startActivity(myIntent);
 
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
             //Time.setText(message);    // show all
             FN_M = (message.substring(0,message.indexOf('-')));
-            FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')-1));  // ignore '-' its self , ignore 1 space
+            FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
         }
         else if(topic.equals("/" + appid + "/NETstatus_Node")){
             if(message.equals("Online")){
@@ -205,8 +206,10 @@ public class MainActivity extends AppCompatActivity {
         else if(topic.equals("/" + appid + "/DHT")){
             String[] DHT = message.split(",");
             text2.setText(DHT[0]);
+            text2.append(" °C");
             temperature.setValue(Integer.valueOf(DHT[0]));
             text3.setText(DHT[1]);
+            text3.append(" %");
             humidity.setValue(Integer.valueOf(DHT[1]));
         }
     }

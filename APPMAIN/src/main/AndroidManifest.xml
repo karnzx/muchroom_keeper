@@ -25,6 +25,8 @@
         <activity
             android:name=".calendar">
         </activity>
+        <activity android:name=".cart">
+        </activity>
     </application>
 
 </manifest>
