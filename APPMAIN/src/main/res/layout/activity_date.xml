@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3E5FC"
-    style="@style/ZCOOL_TextViewStyle"
+    style="@style/AppTheme"
     >
     <TextView
         android:id="@+id/header_calendar"
@@ -41,13 +41,13 @@
 
     <Button
         android:id="@+id/btt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_below="@id/date"
         android:layout_centerHorizontal="true"
-        android:text="back"
+        android:text="BACK"
         android:textColor="@color/md_white_1000"
-        android:background="@drawable/shape_brown_button"
+        android:background="@drawable/shape_oval_blue"
         />
 
 </RelativeLayout>

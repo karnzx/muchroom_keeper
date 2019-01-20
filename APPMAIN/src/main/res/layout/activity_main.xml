@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#B3E5FC"
     android:orientation="vertical"
-    style="@style/ZCOOL_TextViewStyle">
+    style="@style/AppTheme">
 
 
     <android.support.v7.widget.Toolbar
@@ -129,12 +129,13 @@
 
         <ImageView
             android:contentDescription="@string/app_name"
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_above="@+id/textView2"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
             android:src="@drawable/mr3"
             />
 

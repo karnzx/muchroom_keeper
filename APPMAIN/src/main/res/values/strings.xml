@@ -5,4 +5,11 @@
     <string name="ON">ON</string>
     <string name="cart">cart</string>
     <string name="clendar">clendar</string>
+    <string name="mr_sell1">ก้อนเห็ด นางฟ้า นางรม</string>
+    <string name="info_sell1">ก้อนเห็ดแต่ละก้อนมีน้ำหนัก 9ขีด - 1 กิโลกรัม</string>
+    <string name="price_sell1">฿190 - ฿350</string>
+    <string name="mr_sell2">Tai Tai Mushroom Farm \nก้อนเห็ดนางฟ้าภูฏาน</string>
+    <string name="info_sell2">\tเห็ดภูฐาน \nเจริญได้ดีในอุณหภูมิห้องของประเทศไทย จึงให้ผลผลิตได้ง่าย เหมาะกับผู้ที่เริ่มเพาะเลี้ยงเห็ด</string>
+    <string name="price_sell2">฿120</string>
+
 </resources>

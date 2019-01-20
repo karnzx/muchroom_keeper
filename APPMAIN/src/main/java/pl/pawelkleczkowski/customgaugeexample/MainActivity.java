@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Button;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected String FN_D = ""; //final date
     protected String FN_M = ""; //final month
 	String SOffline = "Offline",SOnline = "Online";
+    int i;
 
 	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
@@ -78,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.button);
         ImageButton imageButtonCart =
                 findViewById(R.id.cart);
-        ImageButton  imageButtonCalendar =
+        final ImageButton  imageButtonCalendar =
                 findViewById(R.id.calendar);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
+
+		final ImageView imageView = findViewById(R.id.imageView);
 
         text1 = findViewById(R.id.textView1);
         text2 = findViewById(R.id.textView2);
@@ -90,11 +94,6 @@ public class MainActivity extends AppCompatActivity {
         Time =  findViewById(R.id.Time);
         text1.setText(SOffline);
         Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/ZCOOL-Regular.ttf");
-        text1.setTypeface(typeface);
-        text2.setTypeface(typeface);
-        text3.setTypeface(typeface);
-        text4.setTypeface(typeface);
-        Time.setTypeface(typeface);
         button.setTypeface(typeface);
         switch1.setTypeface(typeface);
 
@@ -160,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 	}
 
 	// Toast func()

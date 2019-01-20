@@ -2,29 +2,137 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B3E5FC"
     style="@style/AppTheme"
     >
-    <LinearLayout
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="30dp"
+        android:orientation="vertical"
         android:background="@drawable/shape_calendarbg"
-        android:layout_centerInParent="true"
         >
-        <TextView
-            android:id="@+id/header_shop"
+        <LinearLayout
+            android:id="@+id/linear_shop"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Shop"
-            android:gravity="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textColor="#536DFE"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/header_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shop"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:background="@null"
+                android:layout_margin="10dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="@color/md_blue_600"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/forsell"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#536DFE"
+                android:text="@string/mr_sell2"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#536DFE"
+                android:text="@string/info_sell2"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_red_500"
+                android:text="@string/price_sell2"
+                android:layout_margin="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/ic_shortcut_shopping_cart" />
 
 
-    </LinearLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/forsell2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#536DFE"
+                android:text="@string/mr_sell1"
+                android:layout_margin="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#536DFE"
+                android:text="@string/info_sell1"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_red_500"
+                android:text="@string/price_sell1"
+                android:layout_margin="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/ic_shortcut_shopping_cart" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+        <Button
+            android:id="@+id/btt"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:text="BACK"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/md_white_1000"
+            android:background="@drawable/shape_oval_blue"
+        />
 </RelativeLayout>
