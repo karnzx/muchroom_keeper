@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 		switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(text1.getText() == SOffline) return; // if Node is offline
                 if(switch1.isChecked()){
                     //microgear.publish("/gearname/Node","ON");
                     microgear.chat("Node","ON");

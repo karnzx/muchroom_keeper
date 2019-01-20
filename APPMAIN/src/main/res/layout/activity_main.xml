@@ -31,7 +31,7 @@
         android:gravity="center"
         android:textColor="#212121"
         android:textSize="22sp"
-        android:text="Day Left " />
+        android:text="@string/Day_Left" />
 
     <ImageButton
         android:id="@+id/cart"
@@ -154,7 +154,7 @@
             android:layout_marginRight="-2dp"
             android:gravity="center"
             android:shadowColor="@color/md_red_200"
-            android:text="Temp"
+            android:text="@string/Temp"
             android:textColor="#ff3d00"
             android:textSize="28sp" />
 
@@ -173,7 +173,7 @@
             android:layout_marginRight="-2dp"
             android:layout_marginBottom="0dp"
             android:gravity="center"
-            android:text="Hum"
+            android:text="@string/Hum"
             android:textColor="@color/md_indigo_A700"
             android:textSize="30sp" />
 
@@ -190,7 +190,7 @@
         android:background="@drawable/shape_rec_l_brown"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Offline"
+        android:text="@string/Offline"
         android:textSize="18sp"
         android:textColor="@color/md_white_1000" />
 
@@ -206,9 +206,9 @@
         android:background="@drawable/shape_rec_l_brown"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Status"
+        android:text="@string/Status"
         android:textColor="@color/md_white_1000"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
 
     <RelativeLayout
@@ -237,7 +237,7 @@
             android:layout_marginRight="33dp"
             android:layout_marginBottom="-1dp"
             android:background="@drawable/shape_brown_button"
-            android:text="REFRESH"
+            android:text="@string/REFRESH"
             android:textColor="@drawable/color_button" />
 
 
