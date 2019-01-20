@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     protected String FN_D = ""; //final date
     protected String FN_M = ""; //final month
 	String SOffline = "Offline",SOnline = "Online";
-    int i;
 
 	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
@@ -85,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
 		final Switch switch1 =
 				findViewById(R.id.switch1);
 
-		final ImageView imageView = findViewById(R.id.imageView);
-
         text1 = findViewById(R.id.textView1);
         text2 = findViewById(R.id.textView2);
         text3 = findViewById(R.id.textView3);
@@ -114,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 		switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 if(text1.getText() == SOffline) return; // if Node is offline
                 if(switch1.isChecked()){
                     //microgear.publish("/gearname/Node","ON");
