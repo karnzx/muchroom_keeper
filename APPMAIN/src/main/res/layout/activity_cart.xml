@@ -39,7 +39,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/forsell"
+                android:src="@drawable/forsell2"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -82,7 +82,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/forsell2"
+                android:src="@drawable/forsell"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -130,7 +130,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:text="BACK"
+            android:text="@string/BACK"
             android:layout_marginBottom="5dp"
             android:textColor="@color/md_white_1000"
             android:background="@drawable/shape_oval_blue"

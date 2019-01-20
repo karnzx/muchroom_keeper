@@ -226,17 +226,17 @@
         <Button
             android:id="@+id/button"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="37dp"
             android:layout_alignBottom="@+id/switch1"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="19dp"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="31dp"
             android:layout_marginEnd="33dp"
             android:layout_marginRight="33dp"
             android:layout_marginBottom="-1dp"
             android:background="@drawable/shape_brown_button"
+            android:padding="10dp"
             android:text="@string/REFRESH"
             android:textColor="@drawable/color_button" />
 

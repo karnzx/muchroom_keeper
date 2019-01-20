@@ -1,14 +1,21 @@
 package pl.pawelkleczkowski.customgaugeexample;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.content.pm.ActivityInfo;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,6 +30,8 @@ import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
 
 import pl.pawelkleczkowski.customgauge.CustomGauge;
+
+import static pl.pawelkleczkowski.customgaugeexample.nortify.channel_id;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
     protected String FN_D = ""; //final date
     protected String FN_M = ""; //final month
-	String SOffline = "Offline",SOnline = "Online";
+    protected String last_msg = ""; // last message of harvest
+	private NotificationManagerCompat notificationManager;
+    String SOffline = "Offline",SOnline = "Online";
+
 
 	// i dont know how to remove yellow tag ;w; so i use this @  -
     @SuppressLint("HandlerLeak")
@@ -78,10 +90,21 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.button);
         ImageButton imageButtonCart =
                 findViewById(R.id.cart);
+        final ImageView imageView =
+                findViewById(R.id.imageView);
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         final ImageButton  imageButtonCalendar =
                 findViewById(R.id.calendar);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
+		//nortification
+        notificationManager = NotificationManagerCompat.from(this);
+
+		//animation
+        animation.setRepeatCount(Animation.INFINITE);
+        imageView.setAnimation(animation);
+        imageView.startAnimation(animation);
+
 
         text1 = findViewById(R.id.textView1);
         text2 = findViewById(R.id.textView2);
@@ -183,10 +206,20 @@ public class MainActivity extends AppCompatActivity {
     private void setMessage(String topic, String message){
 
         if(topic.equals("/" + appid + "/harvest")){
-            Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
-            //Time.setText(message);    // show all
-            FN_M = (message.substring(0,message.indexOf('-')));
-            FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
+            if(!message.equals(last_msg) || message.equals("can harvest now")){
+                last_msg = message;
+                Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
+                //Time.setText(message);    // show all
+                if(message.equals("can harvest now")){
+                    showNotification("Harvest Time");
+                    Log.i("harvest","yes");
+                }else{
+                    FN_M = (message.substring(0,message.indexOf('-')));
+                    FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
+                    showNotification(message.substring(message.indexOf('/')+1));
+                    Log.i("harvest","no");
+                }
+            }
         }
         else if(topic.equals("/" + appid + "/NETstatus_Node")){
             if(message.equals("Online")){
@@ -212,7 +245,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-	class MicrogearCallBack implements MicrogearEventListener{
+    public void showNotification(String text) {
+        Notification notification = new NotificationCompat.Builder(this, channel_id)
+                .setSmallIcon(R.drawable.mr3)
+                .setContentTitle("mush room")
+                .setContentText(text)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setColor(Color.parseColor("#536DFE"))
+                .build();
+
+        notificationManager.notify(1000, notification);
+    }
+
+    class MicrogearCallBack implements MicrogearEventListener{
         @Override
         public void onConnect() {
             Message msg = handler.obtainMessage();

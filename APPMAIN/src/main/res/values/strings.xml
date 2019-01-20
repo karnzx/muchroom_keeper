@@ -19,5 +19,6 @@
     <string name="mr_sell2">Tai Tai Mushroom Farm \nก้อนเห็ดนางฟ้าภูฏาน</string>
     <string name="info_sell2">\tเห็ดภูฐาน \nเจริญได้ดีในอุณหภูมิห้องของประเทศไทย จึงให้ผลผลิตได้ง่าย เหมาะกับผู้ที่เริ่มเพาะเลี้ยงเห็ด</string>
     <string name="price_sell2">฿120</string>
+    <string name="channel_description">IOT Project</string>
 
 </resources>
