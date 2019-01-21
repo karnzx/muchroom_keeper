@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#03A9F4"
-        app:title="Muchroom Project APP"
+        app:title="Mushroom Project APP"
         app:titleTextColor="@color/md_white_1000"
         app:subtitle="connect with netpie"
         app:subtitleTextColor="#B3E5FC"

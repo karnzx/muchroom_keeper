@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Muchroom</string>
+    <string name="app_name">Mushroom</string>
     <string name="title_activity_intro">intro</string>
     <string name="OFF">OFF</string>
     <string name="ON">ON</string>
@@ -20,5 +20,6 @@
     <string name="info_sell2">\tเห็ดภูฐาน \nเจริญได้ดีในอุณหภูมิห้องของประเทศไทย จึงให้ผลผลิตได้ง่าย เหมาะกับผู้ที่เริ่มเพาะเลี้ยงเห็ด</string>
     <string name="price_sell2">฿120</string>
     <string name="channel_description">IOT Project</string>
+    <string name="INFO">information</string>
 
 </resources>
