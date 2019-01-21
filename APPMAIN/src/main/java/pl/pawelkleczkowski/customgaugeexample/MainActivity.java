@@ -85,26 +85,24 @@ public class MainActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_main);
 
-        //define button & switch & imageButton
+        //define button & switch & imageButton & animation
 		Button button =
 				findViewById(R.id.button);
         ImageButton imageButtonCart =
                 findViewById(R.id.cart);
-        final ImageView imageView =
-                findViewById(R.id.imageView);
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         final ImageButton  imageButtonCalendar =
                 findViewById(R.id.calendar);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
+        ImageView imageView =
+                findViewById(R.id.imageView);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
+
 		//nortification
         notificationManager = NotificationManagerCompat.from(this);
 
 		//animation
-        animation.setRepeatCount(Animation.INFINITE);
-        imageView.setAnimation(animation);
         imageView.startAnimation(animation);
-
 
         text1 = findViewById(R.id.textView1);
         text2 = findViewById(R.id.textView2);
