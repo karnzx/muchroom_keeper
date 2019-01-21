@@ -203,6 +203,18 @@ public class MainActivity extends AppCompatActivity {
 		microgear.bindServiceResume();
 	}
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        microgear.bindServiceResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        microgear.bindServiceResume();
+}
+
     private void setMessage(String topic, String message){
 
         if(topic.equals("/" + appid + "/harvest")){
@@ -252,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setAutoCancel(true)
                 .setColor(Color.parseColor("#536DFE"))
                 .build();
 
