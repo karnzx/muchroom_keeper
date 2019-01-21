@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
 		humidity.setEndValue(100);
 		temperature.setStartValue(0);
 		temperature.setEndValue(100);
+        temperature.setValue(100);
+        humidity.setValue(100);
 		// set switch OFF
         switch1.setText(R.string.OFF);
         switch1.setChecked(false);
