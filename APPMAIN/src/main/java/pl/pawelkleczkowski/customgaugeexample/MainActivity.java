@@ -155,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //microgear.publish("/Node","REFESH");
                 microgear.chat("Node","REFRESH");
+                ShowText("REFRESH");
             }
         });
 
@@ -218,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     private void setMessage(String topic, String message){
 
         if(topic.equals("/" + appid + "/harvest")){
-            if(!message.equals(last_msg) || message.equals("can harvest now")){
+            if(!message.equals(last_msg)){
                 last_msg = message;
                 Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
                 //Time.setText(message);    // show all
