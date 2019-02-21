@@ -24,7 +24,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.util.Calendar;
+//import java.util.Calendar;
 
 import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 	protected String secret = "00issaBXLFQXVn0A4qbCIBg1U"; //SECRET
 	protected String alias = "android";
 
-    protected String FN_D = ""; //final date
-    protected String FN_M = ""; //final month
+//    protected String FN_D = ""; //final date
+//    protected String FN_M = ""; //final month
     protected String last_msg = ""; // last message of harvest
 	private NotificationManagerCompat notificationManager;
     String SOffline = "Offline",SOnline = "Online";
@@ -90,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.button);
         ImageButton imageButtonCart =
                 findViewById(R.id.cart);
-        final ImageButton  imageButtonCalendar =
-                findViewById(R.id.calendar);
+//        final ImageButton  imageButtonCalendar = findViewById(R.id.calendar);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
         ImageView imageView =
@@ -153,9 +152,7 @@ public class MainActivity extends AppCompatActivity {
 		button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //microgear.publish("/Node","REFESH");
-                microgear.chat("Node","REFRESH");
-                ShowText("REFRESH");
+                ShowText("INOPTIMIZE");
             }
         });
 
@@ -166,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-
+		/*
 		imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,18 +178,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        */
 
 	}
 
 	// Toast func()
-	private void ShowText(String msg){
-        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT  ).show();
+	private void ShowText(String msg) {
+        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
-
-	@Override
-	public void onAttachedToWindow() {
-		super.onAttachedToWindow();
-	}
 
 	protected void onDestroy() {
 		super.onDestroy();
@@ -204,17 +197,8 @@ public class MainActivity extends AppCompatActivity {
 		microgear.bindServiceResume();
 	}
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        microgear.bindServiceResume();
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        microgear.bindServiceResume();
-}
+
 
     private void setMessage(String topic, String message){
 
@@ -227,9 +211,10 @@ public class MainActivity extends AppCompatActivity {
                     showNotification("Harvest Time");
                     Log.i("harvest","yes");
                 }else{
-                    FN_M = (message.substring(0,message.indexOf('-')));
-                    FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
-                    showNotification(message.substring(message.indexOf('/')+1));
+//                    FN_M = (message.substring(0,message.indexOf('-')));
+//                    FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
+//                    showNotification(message.substring(message.indexOf('/')+1));
+                    showNotification(message + " days left");
                     Log.i("harvest","no");
                 }
             }
