@@ -3,19 +3,21 @@ package pl.pawelkleczkowski.mushroom_keeper;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.io.IOException;
-import java.util.Objects;
-
-import okhttp3.HttpUrl;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+
 
 public class cart extends AppCompatActivity {
 
@@ -28,31 +30,47 @@ public class cart extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         Button info_btt = findViewById(R.id.info_btt);
-        TextView header = findViewById(R.id.header_shop);
         Button button = findViewById(R.id.btt);
         button.setOnClickListener((View v) -> finish() );
 
         info_btt.setOnClickListener((View v) -> {
-            OkHttpClient client = new OkHttpClient();
+            run("ฉันพูดภาษาไทยได้ด้ด้ด้ด้ด้ด้ด้ด้");
+        });
+    }
 
-            HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse("https://notify-api.line.me/api/notify")).newBuilder();
-            urlBuilder.addQueryParameter("message", "from android !");
-            String URL = urlBuilder.build().toString();
+    private void run(String message) {
+        String msg = message;
+        OkHttpClient client = new OkHttpClient();
+        String URL = "https://notify-api.line.me/api/notify";
+        RequestBody body = new FormBody.Builder()
+                .add("message", msg)
+                .build();
 
-            Request request = new Request.Builder()
-                    .header("Content-Type", "application/x-www-form-urlencoded")
-                    .header("Authorization","Bearer TkAybobysN1Ow0bJzbsMGAEDRKwYCb1zrr1hBJflAjr")
-                    .url(URL)
-                    .build();
+        Request request = new Request.Builder()
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Authorization", "Bearer TkAybobysN1Ow0bJzbsMGAEDRKwYCb1zrr1hBJflAjr")
+                .url(URL)
+                .post(body)
+                .build();
 
-            try {
-                Response response = client.newCall(request).execute();
-                assert response.body() != null;
-                header.setText(response.body().toString());
-            } catch (IOException e) {
-                e.printStackTrace();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Log.i("POSTrequest","failure") );
             }
 
+            @Override
+            public void onResponse(Call call,final Response response){
+                runOnUiThread(() -> {
+                    //No need to use
+//                        try{
+//                            Time.setText(response.body().toString());
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                            Time.setText("error during get body");
+//                        }
+                });
+            }
         });
     }
 }
