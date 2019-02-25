@@ -205,12 +205,14 @@ public class MainActivity extends AppCompatActivity {
         if(topic.equals("/" + appid + "/harvest")){
             if(!message.equals(last_msg)){
                 last_msg = message;
-                Time.setText(message.substring(message.indexOf('/')+1));    // ignore 1 space
                 //Time.setText(message);    // show all
                 if(message.equals("can harvest now")){
+                    Time.setText(message);
                     showNotification("Harvest Time");
                     Log.i("harvest","yes");
                 }else{
+                    Time.setText(message);
+                    Time.append(" days left");
 //                    FN_M = (message.substring(0,message.indexOf('-')));
 //                    FN_D = (message.substring(message.indexOf('-')+1,message.indexOf('/')));  // ignore '-' its self
 //                    showNotification(message.substring(message.indexOf('/')+1));
