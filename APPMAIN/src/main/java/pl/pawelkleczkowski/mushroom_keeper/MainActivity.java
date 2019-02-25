@@ -26,9 +26,15 @@ import android.widget.Toast;
 
 //import java.util.Calendar;
 
+import java.util.Objects;
+
 import io.netpie.microgear.Microgear;
 import io.netpie.microgear.MicrogearEventListener;
 
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 import static pl.pawelkleczkowski.mushroom_keeper.nortify.channel_id;
@@ -129,39 +135,30 @@ public class MainActivity extends AppCompatActivity {
         switch1.setChecked(false);
         //microgear.publish("/gearname/Node","OFF");
         microgear.chat("Node","OFF");
-		switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if(text1.getText() == SOffline) return; // if Node is offline
-                if(switch1.isChecked()){
-                    //microgear.publish("/gearname/Node","ON");
-                    microgear.chat("Node","ON");
-                    switch1.setText(R.string.ON);
-                    ShowText("ON");
-                }else{
-                    //microgear.publish("/gearname/Node","OFF");
-                    microgear.chat("Node","OFF");
-                    switch1.setText(R.string.OFF);
-                    ShowText("OFF");
-                }
-                Log.i("Switch", "click");
+		switch1.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) -> {
+            if(text1.getText() == SOffline) return; // if Node is offline
+            if(switch1.isChecked()){
+                //microgear.publish("/gearname/Node","ON");
+                microgear.chat("Node","ON");
+                switch1.setText(R.string.ON);
+                ShowText("ON");
+            }else{
+                //microgear.publish("/gearname/Node","OFF");
+                microgear.chat("Node","OFF");
+                switch1.setText(R.string.OFF);
+                ShowText("OFF");
             }
+            Log.i("Switch", "click");
         });
 
-		button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShowText("INOPTIMIZE");
-            }
+		button.setOnClickListener((View v) -> {
+            ShowText("INOPTIMIZE");
+            ShowText("OFF");
         });
 
-		imageButtonCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this,cart.class); //start intent here
-                startActivity(myIntent);
-            }
+		imageButtonCart.setOnClickListener((View v) ->{
+            Intent myIntent = new Intent(MainActivity.this,cart.class); //start intent here
+            startActivity(myIntent);
         });
 		/*
 		imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
