@@ -34,7 +34,7 @@ public class cart extends AppCompatActivity {
         button.setOnClickListener((View v) -> finish() );
 
         info_btt.setOnClickListener((View v) -> {
-            run("ฉันพูดภาษาไทยได้ด้ด้ด้ด้ด้ด้ด้ด้");
+            run("test");
         });
     }
 

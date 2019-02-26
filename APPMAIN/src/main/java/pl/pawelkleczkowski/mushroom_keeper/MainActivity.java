@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 				findViewById(R.id.button);
         ImageButton imageButtonCart =
                 findViewById(R.id.cart);
-//        final ImageButton  imageButtonCalendar = findViewById(R.id.calendar);
+//        final ImageButton  imageButtonCalendar = findViewById(R.id.option);
 		final Switch switch1 =
 				findViewById(R.id.switch1);
         ImageView imageView =
@@ -160,8 +160,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 		button.setOnClickListener((View v) -> {
-            ShowText("INOPTIMIZE");
-
+            //ShowText("Setting");
+            Intent myIntent = new Intent(MainActivity.this,option.class); //start intent here
+            startActivity(myIntent);
         });
 
 		imageButtonCart.setOnClickListener((View v) ->{
@@ -172,12 +173,12 @@ public class MainActivity extends AppCompatActivity {
 		imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-                //calendar.get(Calendar.YEAR);  //get year
-                calendar.set(Calendar.MONTH, (Integer.parseInt(FN_M)-1));
-                calendar.set(Calendar.DAY_OF_MONTH,Integer.parseInt(FN_D));
-                long milliTime = calendar.getTimeInMillis();
-                Intent myIntent = new Intent(MainActivity.this,calendar.class); //start intent here
+                Calendar option = Calendar.getInstance();
+                //option.get(Calendar.YEAR);  //get year
+                option.set(Calendar.MONTH, (Integer.parseInt(FN_M)-1));
+                option.set(Calendar.DAY_OF_MONTH,Integer.parseInt(FN_D));
+                long milliTime = option.getTimeInMillis();
+                Intent myIntent = new Intent(MainActivity.this,option.class); //start intent here
                 myIntent.putExtra("date", milliTime); //Long var
                 startActivity(myIntent);
 
