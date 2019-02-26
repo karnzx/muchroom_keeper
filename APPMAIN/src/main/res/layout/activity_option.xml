@@ -59,7 +59,7 @@
                  android:text="@string/Edit"
                  android:textSize="24sp"
                  android:textColor="@color/md_white_1000"
-                 android:background="@drawable/shape_rec_l_brown"
+                 android:background="@drawable/shape_brown_button"
                  />
 
     </LinearLayout>

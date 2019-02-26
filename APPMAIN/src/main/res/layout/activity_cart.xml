@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/linear_shop"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/shape_bgblue"
             android:orientation="vertical">
 
@@ -44,13 +44,23 @@
                 android:background="@drawable/shape_bgwhite"
                 android:orientation="vertical"
                 android:padding="10dp">
-                <Button
-                    android:id="@+id/info_btt"
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/idline"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/INFO"
-                    android:textColor="@color/md_white_1000"
-                    android:background="@drawable/shape_rec_l_brown"
+                    android:textSize="23sp"
+                    android:layout_margin="5dp"
+                    android:text="@string/IDline"
+                    />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="23sp"
+                    android:layout_margin="5dp"
+                    android:text="@string/username"
                     />
                 <WebView
                     android:id="@+id/webview"
@@ -94,17 +104,33 @@
                     android:textSize="15sp"
                     android:textStyle="normal" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:gravity="center"
-                    android:text="@string/price_sell2"
-                    android:textColor="@color/md_red_500"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:text="@string/price_sell2"
+                        android:textColor="@color/md_red_500"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Spinner android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Amount1">
+
+                    </Spinner>
+
+                </LinearLayout>
+
 
                 <ImageButton
+                    android:id="@+id/buy_btt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -127,11 +153,12 @@
                     android:src="@drawable/forsell" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:text="@string/mr_sell1"
+                    android:layout_gravity="center"
                     android:textColor="#212121"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -147,10 +174,10 @@
                     android:textStyle="normal" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:text="@string/price_sell1"
                     android:textColor="@color/md_red_500"
                     android:textSize="18sp"
@@ -172,6 +199,7 @@
     </ScrollView>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btt"
         android:layout_width="65dp"
         android:layout_height="65dp"
