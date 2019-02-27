@@ -7,40 +7,40 @@
     android:layout_height="match_parent"
     android:background="#303F9F">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-
+        android:layout_centerInParent="true"
         >
 
         <LinearLayout
             android:id="@+id/linear_shop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/shape_bgblue"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/header_shop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
                 android:background="@null"
-                android:gravity="center"
                 android:text="Shop"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textSize="40sp"
                 android:textColor="#536DFE"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/shape_bgwhite"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -62,142 +62,127 @@
                     android:layout_margin="5dp"
                     android:text="@string/username"
                     />
-                <WebView
-                    android:id="@+id/webview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_margin="25dp"
                 android:background="@drawable/shape_bgwhite"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="15dp">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/forsell2" />
-
                 <TextView
+                    android:id="@+id/infoName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="center"
-                    android:text="@string/mr_sell2"
+                    android:text="@string/please_select_kind"
                     android:textColor="#212121"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:id="@+id/infoPic"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/mr3" />
+
                 <TextView
+                    android:id="@+id/infoDescrib"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:gravity="center"
-                    android:text="@string/info_sell2"
+                    android:text=""
                     android:textColor="#757575"
                     android:textSize="15sp"
                     android:textStyle="normal" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <Spinner
+                    android:id="@+id/select"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                </Spinner>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="center"
-                        android:text="@string/price_sell2"
+                        android:text="ราคา"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/md_red_500"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/infoPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:text="@string/B"
+                        android:layout_marginEnd="10dp"
                         android:textColor="@color/md_red_500"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <Spinner android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/Amount1">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:text="จำนวน"
+                        android:textColor="@color/md_black_1000"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/Amount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                     </Spinner>
 
                 </LinearLayout>
 
-
                 <ImageButton
                     android:id="@+id/buy_btt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:background="@null"
                     android:src="@drawable/ic_shortcut_shopping_cart" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="25dp"
-                android:background="@drawable/shape_bgwhite"
-                android:orientation="vertical"
-                android:padding="15dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/forsell" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="@string/mr_sell1"
-                    android:layout_gravity="center"
-                    android:textColor="#212121"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:text="@string/info_sell1"
-                    android:textColor="#757575"
-                    android:textSize="15sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_gravity="center"
-                    android:text="@string/price_sell1"
-                    android:textColor="@color/md_red_500"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="20dp"
-                    android:background="@null"
-                    android:src="@drawable/ic_shortcut_shopping_cart" />
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
     </ScrollView>
-
     <Button
         android:visibility="gone"
         android:id="@+id/btt"
