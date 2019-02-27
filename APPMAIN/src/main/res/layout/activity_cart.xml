@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_margin="5dp"
-                    android:src="@drawable/mr3" />
+                    android:src="@drawable/mushroom" />
 
                 <TextView
                     android:id="@+id/infoDescrib"

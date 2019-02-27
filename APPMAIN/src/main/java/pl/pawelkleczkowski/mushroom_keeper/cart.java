@@ -146,7 +146,7 @@ public class cart extends AppCompatActivity {
     }
     private void setValuePic() {
 
-        ArrInfoPic.add(R.drawable.mr3);
+        ArrInfoPic.add(R.drawable.mushroom);
         ArrInfoPic.add(R.drawable.forsell);
         ArrInfoPic.add(R.drawable.forsell2);
 

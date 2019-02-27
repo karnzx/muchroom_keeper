@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showNotification(String text) {
         Notification notification = new NotificationCompat.Builder(this, channel_id)
-                .setSmallIcon(R.drawable.mr3)
+                .setSmallIcon(R.drawable.mushroom)
                 .setContentTitle("mush room")
                 .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
