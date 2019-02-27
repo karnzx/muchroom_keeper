@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/md_blue_600</item>
-        <item name="colorPrimaryDark">#0288D1</item>
+        <item name="colorPrimaryDark">#ed8725</item>
         // TOP
         <item name="colorAccent">@color/md_blue_300</item>
         <item name="android:textViewStyle">@style/ZCOOL_TextViewStyle</item>

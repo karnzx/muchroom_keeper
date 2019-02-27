@@ -5,7 +5,7 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303F9F">
+    android:background="#F57C00">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/shape_bgblue"
+            android:background="@drawable/shape_bgorange"
             android:orientation="vertical"
             >
 
@@ -31,9 +31,9 @@
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:background="@null"
-                android:text="Shop"
+                android:text="-"
                 android:textSize="40sp"
-                android:textColor="#536DFE"
+                android:textColor="#222f3e"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -51,6 +51,7 @@
                     android:layout_height="match_parent"
                     android:textSize="23sp"
                     android:layout_margin="5dp"
+                    android:textColor="#222f3e"
                     android:text="@string/IDline"
                     />
 
@@ -60,6 +61,7 @@
                     android:layout_height="match_parent"
                     android:textSize="23sp"
                     android:layout_margin="5dp"
+                    android:textColor="#222f3e"
                     android:text="@string/username"
                     />
 

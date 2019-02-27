@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#B3E5FC"
+            android:background="#fcd98d"
             style="@style/AppTheme"
             >
 
@@ -25,7 +25,7 @@
                     android:layout_margin="20dp"
                     android:text="@string/yourInfomation"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:textColor="#536DFE"
+                    android:textColor="#F57C00"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 

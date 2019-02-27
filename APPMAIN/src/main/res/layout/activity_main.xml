@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B3E5FC"
+    android:background="#fcd98d"
     android:orientation="vertical"
     style="@style/AppTheme">
 
@@ -13,11 +13,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#03A9F4"
+        android:background="#ffb13d"
         app:title="Mushroom Project APP"
-        app:titleTextColor="@color/md_white_1000"
+        app:titleTextColor="#222f3e"
         app:subtitle="connect with netpie"
-        app:subtitleTextColor="#B3E5FC"
+        app:subtitleTextColor="#757575"
         style="@style/ZCOOL_TextViewStyle"
         />
 
@@ -157,7 +157,8 @@
             android:shadowColor="@color/md_red_200"
             android:text="@string/Temp"
             android:textColor="#ff3d00"
-            android:textSize="28sp" />
+            android:textSize="28sp"
+            />
 
         <TextView
             android:id="@+id/textView3"
